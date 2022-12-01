@@ -1,8 +1,8 @@
 package main
 
 import (
+	"codeavdent2022/utils"
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -58,18 +58,9 @@ Find the Elf carrying the most Calories. How many total Calories is that Elf car
 */
 
 func main() {
-	cwd, err := os.Getwd()
-	panicOnErr(err)
-
-	cnt, err := os.ReadFile(cwd + "/01/input.txt")
-	panicOnErr(err)
-
-	content := string(cnt)
-	lines := strings.Split(content, "\n")
-
 	globalMax := 0
 	localMax := 0
-	for _, line := range lines {
+	for _, line := range utils.ReadLines("01.txt") {
 		trimmedLine := strings.TrimSpace(line)
 		if trimmedLine == "" {
 			if globalMax < localMax {
@@ -78,16 +69,10 @@ func main() {
 			localMax = 0
 		} else {
 			calories, err := strconv.Atoi(trimmedLine)
-			panicOnErr(err)
+			utils.PanicOnErr(err)
 			localMax += calories
 		}
 	}
 
 	fmt.Println(globalMax)
-}
-
-func panicOnErr(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
