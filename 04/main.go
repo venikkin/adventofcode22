@@ -32,6 +32,7 @@ func main() {
 	fmt.Println(total)
 }
 
+// TODO rewrite this with %3
 func scores(round []string) int {
 	if round[1] == "X" {
 		if round[0] == "A" {
