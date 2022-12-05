@@ -2,6 +2,7 @@ package utils
 
 import (
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -20,4 +21,10 @@ func PanicOnErr(err error) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func AtoiOrPanic(s string) int {
+	i, e := strconv.Atoi(s)
+	PanicOnErr(e)
+	return i
 }

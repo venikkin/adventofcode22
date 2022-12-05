@@ -2,7 +2,6 @@ package main
 
 import (
 	"codeavdent2022/utils"
-	"strconv"
 	"strings"
 )
 
@@ -48,15 +47,9 @@ func parseLine(line string) [][]int {
 	elf2 := strings.Split(elfs[1], "-")
 
 	return [][]int{
-		{atoiOrPanic(elf1[0]), atoiOrPanic(elf1[1])},
-		{atoiOrPanic(elf2[0]), atoiOrPanic(elf2[1])},
+		{utils.AtoiOrPanic(elf1[0]), utils.AtoiOrPanic(elf1[1])},
+		{utils.AtoiOrPanic(elf2[0]), utils.AtoiOrPanic(elf2[1])},
 	}
-}
-
-func atoiOrPanic(s string) int {
-	i, e := strconv.Atoi(s)
-	utils.PanicOnErr(e)
-	return i
 }
 
 func overlap(a, b []int) bool {
