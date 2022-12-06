@@ -1,6 +1,6 @@
 package main
 
-import "codeavdent2022/utils"
+import "adventofcode22/utils"
 
 /**
 --- Day 6: Tuning Trouble ---

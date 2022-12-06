@@ -1,3 +1,3 @@
-module codeavdent2022
+module adventofcode22
 
 go 1.18

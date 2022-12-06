@@ -1,7 +1,7 @@
 package main
 
 import (
-	"codeavdent2022/utils"
+	"adventofcode22/utils"
 	"strings"
 )
 
