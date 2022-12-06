@@ -7,14 +7,18 @@ import (
 )
 
 func ReadLines(file string) []string {
+	content := ReadContent(file)
+	return strings.Split(content, "\n")
+}
+
+func ReadContent(file string) string {
 	cwd, err := os.Getwd()
 	PanicOnErr(err)
 
 	cnt, err := os.ReadFile(cwd + "/inputs/" + file)
 	PanicOnErr(err)
 
-	content := string(cnt)
-	return strings.Split(content, "\n")
+	return string(cnt)
 }
 
 func PanicOnErr(err error) {
