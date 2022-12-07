@@ -142,9 +142,10 @@ func sumSmall(file file, total *int) int {
 				sum += f.size
 			}
 		}
-	}
-	if sum <= 100_000 {
-		*total += sum
+
+		if sum <= 100_000 {
+			*total += sum
+		}
 	}
 	return sum
 }
