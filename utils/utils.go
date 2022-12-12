@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -31,4 +32,8 @@ func AtoiOrPanic(s string) int {
 	i, e := strconv.Atoi(s)
 	PanicOnErr(e)
 	return i
+}
+
+func IntAbs(i int) int {
+	return int(math.Abs(float64(i)))
 }
