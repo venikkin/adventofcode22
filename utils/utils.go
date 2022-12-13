@@ -29,11 +29,20 @@ func PanicOnErr(err error) {
 }
 
 func AtoiOrPanic(s string) int {
-	i, e := strconv.Atoi(s)
+	i, e := strconv.Atoi(strings.TrimSpace(s))
 	PanicOnErr(e)
 	return i
 }
 
 func IntAbs(i int) int {
 	return int(math.Abs(float64(i)))
+}
+
+func ToIntSlice(s string) []int {
+	elems := strings.Split(s, ",")
+	res := make([]int, len(elems))
+	for i, elem := range elems {
+		res[i] = AtoiOrPanic(strings.TrimSpace(elem))
+	}
+	return res
 }
