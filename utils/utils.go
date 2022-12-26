@@ -46,3 +46,13 @@ func ToIntSlice(s string) []int {
 	}
 	return res
 }
+
+func Min(args ...int) int {
+	min := math.MaxInt
+	for _, i := range args {
+		if i < min {
+			min = i
+		}
+	}
+	return min
+}
