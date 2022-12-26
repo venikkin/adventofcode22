@@ -55,40 +55,20 @@ func main() {
 	fmt.Println(total)
 }
 
-// TODO rewrite this with %3
+var weights = map[string]int{
+	"A": 0, "B": 1, "C": 2,
+	"X": 0, "Y": 1, "Z": 2,
+}
+
 func scores(round []string) int {
-	if round[1] == "X" {
-		if round[0] == "A" {
-			return 1 + 3
-		}
-		if round[0] == "B" {
-			return 1 + 0
-		}
-		if round[0] == "C" {
-			return 1 + 6
-		}
+	elf := weights[round[0]]
+	you := weights[round[1]]
+
+	if elf == you {
+		return you + 3 + 1
 	}
-	if round[1] == "Y" {
-		if round[0] == "A" {
-			return 2 + 6
-		}
-		if round[0] == "B" {
-			return 2 + 3
-		}
-		if round[0] == "C" {
-			return 2 + 0
-		}
+	if (you+1)%3 == elf {
+		return you + 1
 	}
-	if round[1] == "Z" {
-		if round[0] == "A" {
-			return 3 + 0
-		}
-		if round[0] == "B" {
-			return 3 + 6
-		}
-		if round[0] == "C" {
-			return 3 + 3
-		}
-	}
-	panic("don't know how to convert round")
+	return you + 6 + 1
 }
